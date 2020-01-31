@@ -1,0 +1,4 @@
+使用Vue.extend直接扩展
+使用Vue.mixin全局混入
+HOC封装
+可以加slot扩展
