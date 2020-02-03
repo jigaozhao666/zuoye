@@ -1,0 +1,19 @@
+VueX就是一个仓库，存放着vue的所有组件共用的状态和方法，是全局的，当业务逻辑复杂，需要组件间大量共享数据的时候，就轮到vuex登场了。
+Vuex有五个基本的对象：state getter modules mutations actions
+state非常好理解，里面存放了一些组件之间共享的状态
+
+当我们需要从 state 中派生出一些状态的时候，就会使用到getters，你可以将 getters 理解state的计算属性
+
+Vuex相比传统的全局变量有两个优势，
+其中一个是Vuex中的状态不能随意修改，要修改必要按照Vuex提供的方式才能修改。
+uex给我们提供修改仓库 store 中的状态的唯一办法就是通过提交 mutation
+
+Action 类似于 mutation，不同在于：
+
+Action 提交的是 mutation，而不是直接变更状态。
+Action 可以包含任意异步操作，通过 store.dispatch 方法触发
+
+Vuex也可以分为多个模块，当项目中需要存放的状态和方法非常多时，把它们都放在一个模块中就会显得非常臃肿，
+难以维护，体验非常差。这时，我们就可以通过modules方法进行模块划分，就类似于仓库的小隔间一样，
+把不同模块的state、getter、mutations、actions放在一个文件或文件夹里，极大的增加了可读性和可维护性，
+而且在软件开发中，一般来说各个模块对应不同的负责人，所以在使用modules进行分类后，对于开发人员是非常友好的。
