@@ -1,0 +1,30 @@
+组件自身去调用组件自身
+例：
+子组件：
+<template>
+  <div>
+    <div class="item" v-for="(item,index) of list" :key="index">
+ 
+      <div class="item-title border-bottom">
+        <span class="item-title-icon"></span>
+        {{item.title}}
+      </div>
+      <!--递归组件：DetailList调用自身-->
+      <div v-if="item.children" class="item-children">
+        <detail-list :list="item.children"></detail-list>
+      </div>
+ 
+    </div>
+  </div>
+</template>
+
+父组件：
+<template>
+  <div>
+    <detail-banner></detail-banner>
+    <detail-header></detail-header>
+    <div class="content">
+      <detail-list :list="list"></detail-list>
+    </div>
+  </div>
+  </template>
